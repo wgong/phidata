@@ -1,0 +1,16 @@
+# my local pkg to setup key
+# api_key_store
+
+# 
+openai
+duckduckgo-search
+yfinance
+lancedb
+tantivy
+pypdf
+requests
+exa-py
+newspaper4k
+lxml_html_clean
+sqlalchemy
+agno
