@@ -1,5 +1,10 @@
 # Cookbook
 
+## 2025-03-18
+
+### `cookbook/workflows/blog_post_generator.py` : workflow / content creation
+
+
 ## 2025-03-16
 
 ### `cookbook/examples/agents/finance_agent_u8hi.py` : Finance Agent

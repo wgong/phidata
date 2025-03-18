@@ -22,7 +22,11 @@
     - https://docs.agno.com/how-to/contribute
 
 ##### phidata-docs locally
-- https://github.com/agno-agi/phidata-docs
+- [source](https://github.com/agno-agi/phidata-docs)
+
+- [fork](https://github.com/wgong/agno-docs)
+    - ~/projects/wgong/agno-docs
+
 
 #### learn uv
 

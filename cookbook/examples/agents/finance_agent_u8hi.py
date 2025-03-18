@@ -136,8 +136,10 @@ invoke_agent(finance_agent, topic, file_log=file_log)
 if False:
 
     # Example usage with detailed market analysis request
+    topic = "What's the latest news and financial performance of Apple (AAPL)?"
     finance_agent.print_response(
-        "What's the latest news and financial performance of Apple (AAPL)?", stream=True
+        topic, 
+        stream=True
     )
 
     # Semiconductor market analysis example
