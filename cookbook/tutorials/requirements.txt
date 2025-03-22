@@ -1,0 +1,7 @@
+phidata
+requests
+duckduckgo-search
+openai
+Deprecated
+packaging
+yfinance
