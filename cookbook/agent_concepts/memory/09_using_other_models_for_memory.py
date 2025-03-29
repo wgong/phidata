@@ -37,11 +37,13 @@ from agno.tools.duckduckgo import DuckDuckGoTools
 from agno.tools.youtube import YouTubeTools
 from rich import print
 
+from utils_u8hi import *
+
 # Initialize storage components
 agent_storage = SqliteAgentStorage(table_name="study_sessions", db_file="tmp/agents.db")
 memory_db = SqliteMemoryDb(
     table_name="study_memory",
-    db_file="tmp/agent_memory.db",
+    db_file="tmp/agent_memory.sqlite3",
 )
 
 

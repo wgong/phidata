@@ -15,7 +15,6 @@ from agno.knowledge.pdf_url import PDFUrlKnowledgeBase
 from agno.storage.agent.postgres import PostgresAgentStorage
 from agno.vectordb.pgvector import PgVector, SearchType
 
-
 from utils_u8hi import *
 
 db_url = "postgresql+psycopg://ai:ai@localhost:5532/ai"
