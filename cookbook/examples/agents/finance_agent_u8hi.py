@@ -23,10 +23,7 @@ from agno.models.ollama import Ollama
 from agno.tools.yfinance import YFinanceTools
 
 from utils_u8hi import * 
-
-
-filename_without_ext = os.path.splitext(os.path.basename(__file__))[0]  # e.g., "script"
-file_log = f"{filename_without_ext}.log.md"
+file_log = get_file_log(__file__)
 
 # =========================
 CLOUD_LLM = True  #  False  #  
@@ -128,8 +125,6 @@ What's the latest news and financial performance of Apple (AAPL)?
 ]
 
 topic = tasks[0].strip()
-if not topic:
-    exit(1)
 
 invoke_agent(finance_agent, topic, file_log=file_log)
 

@@ -25,20 +25,14 @@ def log_response(topic, resp_msg, model_id, ts_now, elapsed_sec, file_log="", to
 
     # log Agent response
     with open(file_log, "a") as flog:
-        flog.write("\n\n" + 50*"=" + "\n")
-        flog.write(f"\n ## {topic} \n")
-        flog.write(f"\n [{ts_now}] \n")
-        flog.write("\n\n" + 50*"=" + "\n\n")
+        flog.write("\n\n" + 80*"=" + "\n")
+        flog.write(f"\n [Topic] {topic} \n")
+        flog.write("\n\n" + 40*"=" + "\n")
         flog.write(resp_msg)
-        flog.write(f"\n\n[{model_id}] Completed in {elapsed_sec:.3f} sec")
-        flog.write("\n\n" + 20*"=" + "\n")
+        flog.write(f"\n\n[ ({model_id}) - ({ts_now}) ] Completed in {elapsed_sec:.3f} sec")
+        flog.write("\n\n" + 40*"=" + "\n")
 
-
-def get_file_log(filename):
-    filename_without_ext = os.path.splitext(os.path.basename(filename))[0]  # e.g., "script"
-    return f"{filename_without_ext}.log.md" 
-
-def invoke_agent(agent: Agent, topic : str, model_id: str = "", file_log : str = ""):
+def invoke_agent(agent: Agent, topic : str, file_log : str = ""):
     if not topic.strip():
         return
 
@@ -51,11 +45,4 @@ def invoke_agent(agent: Agent, topic : str, model_id: str = "", file_log : str =
     elapsed_sec = ts_stop - ts_start
     resp_msg = run_resp.content
 
-    log_response(
-            topic, 
-            resp_msg, 
-            model_id, 
-            ts_now, 
-            elapsed_sec, 
-            file_log = get_file_log(file_log),
-        )
+    log_response(topic, resp_msg, model_id, ts_now, elapsed_sec, file_log = file_log)
