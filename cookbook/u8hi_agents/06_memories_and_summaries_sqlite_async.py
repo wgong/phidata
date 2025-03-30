@@ -18,8 +18,7 @@ from rich.panel import Panel
 
 from utils_u8hi import *
 
-agent_memory_file: str = "tmp/agent_memory.sqlite3"
-agent_storage_file: str = "tmp/agent_storage.sqlite3"
+DB_FILE = "db/agent_memory.sqlite3"
 
 agent = Agent(
     model=OpenAIChat(id="gpt-4o-mini"),
@@ -29,7 +28,7 @@ agent = Agent(
     memory=AgentMemory(
         db=SqliteMemoryDb(
             table_name="agent_memory",
-            db_file=agent_memory_file,
+            db_file=DB_FILE,
         ),
         # Create and store personalized memories for this user
         create_user_memories=True,
@@ -41,7 +40,7 @@ agent = Agent(
         update_session_summary_after_run=True,
     ),
     # Store agent sessions in a database
-    storage=SqliteAgentStorage(table_name="agent_sessions", db_file=agent_storage_file),
+    storage=SqliteAgentStorage(table_name="agent_sessions", db_file=DB_FILE),
     description="You are a helpful assistant that always responds in a polite, upbeat and positive manner.",
     # Show debug logs to see the memory being created
     # debug_mode=True,

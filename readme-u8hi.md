@@ -33,6 +33,43 @@ localhost:5532, schema=ai, user/pwd=ai/ai,
 
 query the recipe book
 
+##### Playground
+
+```
+python agentic_rag_agent_playground_u8hi.py
+```
+
+Playground URL: https://app.agno.com/playground?endpoint=localhost%3A7777
+
+
+##### [Workspace](https://docs.agno.com/workspaces/introduction)
+
+```bash
+pip install -U "agno[aws]"
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+export OPENAI_API_KEY=sk-***
+
+cd cookbook/u8hi_agents
+ag ws create --template agent-app --name agent-app-chinook
+cd agent-app-chinook
+# https://docs.agno.com/workspaces/workspace-management/development-app
+
+ag ws up --env dev --infra docker --type image --force
+# failed
+# posted issue at Agno community:
+# https://community.agno.com/t/failed-to-start-workspace-due-to-docker-issue/889
+ag ws restart --env dev --infra docker --type container
+
+# select template = agent-app (others=agent-api)
+# ws_name = agent-app1
+
+```
+Your new workspace is available at ./cookbook/u8hi_agents/agent-app1
+
+- start ws: `ag ws up`
+- Stop workspace: `ag ws down`
+
 
 #### Issues 
 

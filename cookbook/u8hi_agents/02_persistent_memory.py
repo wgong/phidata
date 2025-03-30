@@ -16,11 +16,14 @@ from rich.panel import Panel
 
 from utils_u8hi import *
 
+DB_FILE = "db/agent_memory.sqlite3"
+
 agent = Agent(
     model=OpenAIChat(id=model_id),
     # Store agent sessions in a database
     storage=SqliteAgentStorage(
-        table_name="agent_sessions", db_file="tmp/agent_storage.db"
+        table_name="agent_sessions", 
+        db_file=DB_FILE
     ),
     # Set add_history_to_messages=true to add the previous chat history to the messages sent to the Model.
     add_history_to_messages=True,

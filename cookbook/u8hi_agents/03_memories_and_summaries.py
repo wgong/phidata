@@ -17,6 +17,8 @@ from rich.panel import Panel
 
 from utils_u8hi import *
 
+DB_FILE = "db/agent_memory.sqlite3"
+
 agent = Agent(
     model=OpenAIChat(id=model_id),
     # The memories are personalized for this user
@@ -25,7 +27,7 @@ agent = Agent(
     memory=AgentMemory(
         db=SqliteMemoryDb(
             table_name="agent_memory",
-            db_file="tmp/agent_memory.sqlite3",
+            db_file=DB_FILE,
         ),
         # Create and store personalized memories for this user
         create_user_memories=True,
@@ -39,7 +41,7 @@ agent = Agent(
     # Store agent sessions in a database, that persists between runs
     storage=SqliteAgentStorage(
         table_name="agent_sessions", 
-        db_file="tmp/agent_storage.sqlite3"
+        db_file=DB_FILE,
     ),
     # add_history_to_messages=true adds the chat history to the messages sent to the Model.
     add_history_to_messages=True,
