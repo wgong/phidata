@@ -48,7 +48,7 @@ Playground URL: https://app.agno.com/playground?endpoint=localhost%3A7777
 pip install -U "agno[aws]"
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-export OPENAI_API_KEY=sk-***
+update .env file
 
 cd cookbook/u8hi_agents
 ag ws create --template agent-app --name agent-app-chinook
@@ -70,11 +70,33 @@ Your new workspace is available at ./cookbook/u8hi_agents/agent-app1
 - start ws: `ag ws up`
 - Stop workspace: `ag ws down`
 
+##### Local setup
+
+
+https://docs.agno.com/workspaces/agent-app/local
+
+https://github.com/digital-duck/agent-app-chinook
+
+```
+conda activate agno
+cd ~/projects/wgong/phidata/cookbook/u8hi_agents/agent-app-chinook
+
+ag ws up
+# - Open localhost:8501 to view the streamlit UI.
+# - Open localhost:8000/docs to view the FastAPI routes.
+
+ag ws down
+```
 
 #### Issues 
 
+##### docker sock non-default
 
-The following models DO NOT support tools
+https://community.agno.com/t/failed-to-start-workspace-due-to-docker-issue/889
+
+see `~/projects/wgong/py4kids/lesson-18-ai/Agents/agno-phidata/readme.md`
+
+##### Models DO NOT support tools
 - `phi4` 
 - `deepseek-r1` 
 
