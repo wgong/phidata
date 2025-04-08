@@ -32,6 +32,7 @@ certs/
 # ignore storage dir
 /storage
 .images
+/qdrant_storage
 
 # ignore wip dir
 wip
